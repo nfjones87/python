@@ -15,7 +15,7 @@ def intro():
     if choice == '1':
         print('Good luck!')
         time.sleep(2)
-        os.system('cls')
+        clear()
         start(inv)
     elif choice == '2':
         exit(0)
@@ -29,12 +29,12 @@ def start(inv):
     if choice == 'scream':
         print ('No one can hear you.')
         time.sleep(2)
-        os.system('cls')
+        clear()
         start(inv)
     elif choice == 'feel around':
         print('Rock walls. Damp. Feels like a dungeon.')
         time.sleep(2)
-        os.system('cls')
+        clear()
         start(inv)
     elif choice == 'check pockets':
         print('You found a lighter')
@@ -47,7 +47,7 @@ def start(inv):
         if choice == 'light lighter':
             print('You flick on the lighter, its flame bursting into existence')
             time.sleep(3)
-            os.system('cls')
+            clear()
             lighter(inv)
 
 
@@ -61,12 +61,12 @@ def lighter(inv):
         if 'key' in inv:
             print('You used the key to open the door')
             time.sleep(3)
-            os.system('cls')
+            clear()
             hallway(inv)
         else:
             print('It is locked')
             time.sleep(2)
-            os.system('cls')
+            clear()
             lighter(inv)
     elif choice == 'check walls':
         print('You scan along the rock wall until you find a loose rock.')
@@ -80,17 +80,17 @@ def lighter(inv):
                 print('You used the dagger to pry open the rock. You see a key. You take the key.')
                 inv.append('key')
                 time.sleep(2)
-                os.system('cls')
+                clear()
                 lighter(inv)
             else:
                 print('You cant quite pry it off with your fingers')
                 time.sleep(3)
-                os.system('cls')
+                clear()
                 lighter(inv)
     elif choice == 'drink water':
         print('Ew. It is disgusting. Youll now probably die a slow painful death')
         time.sleep(2)
-        os.system('cls')
+        clear()
         lighter(inv)
     elif choice == 'check corpse':
         print('You kick over the corpse to reveal a dagger.')
@@ -103,7 +103,7 @@ def lighter(inv):
             inv.append('dagger')
             print('You take the dagger')
             time.sleep(2)
-            os.system('cls')
+            clear()
             lighter(inv)
 
 
@@ -124,8 +124,10 @@ def selectchoice(selectionList):
         print('Invalid input')
         return selectchoice(selectionList)
 
+def clear():
+    os.system('cls')
     
-os.system('cls')
+clear()
 inv = ['']
 
 intro()
