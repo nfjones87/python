@@ -125,7 +125,7 @@ def selectchoice(selectionList):
         return selectchoice(selectionList)
 
 def clear():
-    os.system('cls')
+    os.system('clear')
     
 clear()
 inv = ['']
