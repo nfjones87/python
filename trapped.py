@@ -2,7 +2,7 @@ import os
 import time
 
 def clear():
-    os.system('clear')
+    os.system('cls')
 
 def again():
     print('Play again?')
@@ -147,38 +147,43 @@ def hallway(inv):
 def left(inv):
     print('You walk forward slowly, straining to see with your faint light. A door appears before you. You move towards it and accidentally step on a button.')
     if 'shield' in inv:
-        print('As the door opens an arrow shoots out! It hits your shield and bounces off. Phew!')
-        time.sleep(2)
+        time.sleep(5)
+        print('As the door opens an arrow shoots out! It hits your shield and bounces off.')
+        time.sleep(4)
         print('You walk forward through the door.')
+        time.sleep(3)
+        clear()
         room(inv)
     else:
+        time.sleep(5)
         print('As the door opens an arrow shoots out! It plunges into your chest!')
-        time.sleep(1)
+        time.sleep(4)
         print('You have died.')
+        time.sleep(3)
         again()
 
 
 def right(inv):
     print('You make your way down the dark hallway, your lighter struggling to illuminate. You hear a noise in front of you. You strain to see and are suddenly face to face with an undead warrior. It lunges at you.')
-    time.sleep(1)
+    time.sleep(4)
     print('What do you do?')
 
     selectionList = ['attack', 'run', 'scream']
     choice = selectchoice(selectionList)
     if choice == 'run':
         print('You turn to run. You spin around, but before you make any distance, a sword plunges through your back')
-        time.sleep(2)
+        time.sleep(4)
         print('You are dead.')
         time.sleep(3)
         again()
     elif choice == 'scream':
         print('You scream, frozen in fear. The sword is the last thing you see.')
-        time.sleep(2)
+        time.sleep(4)
         print('You are dead.')
         again()
     elif choice == 'attack':
         print('You side step and forcefully plunge your dagger into its skull. It instantly drops into a pile of bones.')
-        time.sleep(2)
+        time.sleep(4)
         print('Now what?')
 
         selectionList = ['search bones', 'go back', 'keep going']
@@ -190,7 +195,7 @@ def right(inv):
             hallway(inv)
         elif choice == 'keep going':
             print('You step over the bones and move forward only to come to a solid wall. A dead end')
-            time.sleep(2)
+            time.sleep(3)
             print('Now what?')
 
             selectionList = ['go back']
@@ -230,7 +235,69 @@ def right(inv):
 
 
 
+def room(inv):
+    clear()
+    print('As you creep forward into the darkness, you suddenly see light pouring from the ceiling and a ladder! The way out!')
+    time.sleep(3)
+    print('But before you can reach the ladder, a presence makes itself known, standing between you and freedom.')
+    time.sleep(3)
+    print('A Grue looms large, lurking in the shadows.')
+    time.sleep(3)
+    print('What do you do?')
 
+    selectionList = ['run', 'attack']
+    choice = selectchoice(selectionList)
+
+    if choice == 'run':
+        print('You attempt to flee, but the Grue is quicker.')
+        time.sleep(2)
+        print('He snatches you up before you can escape, eating you alive.')
+        time.sleep(3)
+        print('You have died')
+        time.sleep(3)
+        again()
+    elif choice == 'attack':
+        print('You lunge at the Grue, swinging your sword.')
+        time.sleep(2)
+        print('A direct hit! It stumbles back for a moment, but then charges you!')
+        time.sleep(2)
+        print('Now what?')
+
+        selectionList = ['block', 'attack']
+        choice = selectchoice(selectionList)
+
+        if choice == 'attack':
+            print('You attempt to swing your sword in retaliation, but the Grue connects firsts..')
+            time.sleep(2)
+            print('The force of the blow knocks you down.')
+            time.sleep(2)
+            print('You get dragged into the darkness.')
+            time.sleep(2)
+            print('You have died.')
+            time.sleep(3)
+            again()
+        elif choice == 'block':
+            print('You raise your shield, blocking the attack just in time!')
+            time.sleep(2)
+            print('The Grue stumbles back, stunned!')
+            time.sleep(2)
+            print('Now what?')
+
+            selectionList = ['attack']
+            choice = selectchoice(selectionList)
+
+            if choice == 'attack':
+                print('You thrust your sword forward, plunging it into the Grue.')
+                time.sleep(2)
+                print('It shreaks out in agony then collapses to the floor.')
+                time.sleep(2)
+                print('You have killed the Grue.')
+                time.sleep(4)
+                print('You look up into the blinding light, and ascend the ladder.')
+                time.sleep(4)
+                print('You have escaped.')
+                time.sleep(4)
+                again()
 
 
 
