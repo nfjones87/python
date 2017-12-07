@@ -2,7 +2,7 @@ import os
 import time
 
 def clear():
-    os.system('cls')
+    os.system('clear')
 
 def again():
     print('Play again?')
